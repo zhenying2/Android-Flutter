@@ -2,7 +2,8 @@
 
 # Error History
 
-#1.  07.18 해결
+1.  07.18 해결
+
 Installed Build Tools revision 31.0.0 is corrupted. Remove and install again using the SDK Manager.
 
 Sol)
