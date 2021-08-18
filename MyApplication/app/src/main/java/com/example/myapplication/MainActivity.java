@@ -30,12 +30,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String id = "0007790A6F10";
-        String name = "Red";
+
+        String name = "jin";
+        String number="01012345678";
 
         task = new phpdo();
         txtview = (TextView)findViewById(R.id.txtView);
-        task.execute(id, name);
+        task.execute(name,number);
 
     }
 
@@ -48,10 +49,12 @@ public class MainActivity extends AppCompatActivity {
         protected String doInBackground(String... arg0) {
 
             try {
-                String id =  arg0[0];
-                String name = arg0[1];
+                String name = arg0[0];
+                String number=arg0[1];
 
-                String link = "https://zhenying2.cafe24.com/UserRegister.php?userID=" + id + "&userName=" + name;
+                String link = "https://zhenying2.cafe24.com/testquery.php?userName=" + name +"&userNumber=" + number;
+                // String link = "http://192.168.220.1/testquery.php?userName=" + name +"&userNumber=" + number;
+
                 URL url = new URL(link);
                 HttpClient client = new DefaultHttpClient();
                 HttpGet request = new HttpGet();
@@ -78,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result){
             //txtview.setText("Login Successful");
             txtview.setText(result);
-            txtview.setText("HELLO!!!");
         }
     }
 
