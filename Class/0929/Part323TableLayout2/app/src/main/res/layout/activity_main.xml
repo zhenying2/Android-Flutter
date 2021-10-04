@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00FFFF"
+    tools:context=".MainActivity">
+
+    <TableRow>
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Row1 : Data "/>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:gravity="right"
+            android:padding="10dp"
+            android:text="check1"/>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Row2 : Data "/>
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:text="check2"/>
+    </TableRow>
+
+</TableLayout>

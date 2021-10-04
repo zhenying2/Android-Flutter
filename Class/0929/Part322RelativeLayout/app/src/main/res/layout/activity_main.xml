@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#aaffde"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5pt"
+        android:layout_alignBaseline="@+id/editText1"
+        android:textColor="@color/black"
+        android:text="Login ID : " />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_alignBaseline="@+id/editText2"
+        android:textColor="@color/black"
+        android:padding="5pt"
+        android:text="Password : " />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_alignBaseline="@+id/editText3"
+        android:textColor="@color/black"
+        android:padding="5pt"
+        android:text="Email : " />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/textView1"
+        android:ems="10"
+        android:width="200px"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="#FF3300"
+        android:hint="Enter ID"/>
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_below="@+id/editText1"
+        android:ems="10"
+        android:width="400px"
+        android:textColor="@color/black"
+        android:textColorHint="#FF3300"
+        android:inputType="textPersonName"
+        android:hint="Enter Password"/>
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_below="@+id/editText2"
+        android:ems="10"
+        android:width="400px"
+        android:textColor="@color/black"
+        android:textColorHint="#FF3300"
+        android:inputType="textPersonName"
+        android:hint= "Enter Email \njinyoung@abc.def"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1"
+        android:layout_below="@+id/editText3"
+        android:layout_alignParentRight="true"
+        android:text="Login"
+        android:width="400px"
+        android:layout_marginRight="5pt"
+        android:textColor="@color/black"
+        android:backgroundTint="#FF00F0"
+        android:typeface="normal"
+        android:textSize="10pt"/>
+
+</RelativeLayout>
