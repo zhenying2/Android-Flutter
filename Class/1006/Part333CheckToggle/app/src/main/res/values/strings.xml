@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Part3-3-3CheckToggle</string>
+    <string name="CheckBox1">Check</string>
+    <string name="ToggleButton1">Set/Reset</string>
+</resources>
