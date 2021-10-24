@@ -1,4 +1,4 @@
-package com.example.loginui;
+package com.example.intents;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class LoginActivity extends AppCompatActivity {
+public class NextActivity extends AppCompatActivity {
 
     TextView results;
     Button btn;
@@ -16,7 +16,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_next);
 
         TextView results=(TextView)findViewById(R.id.textView2);
         Button btn=(Button)findViewById(R.id.button2);
@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent confirm=new Intent(LoginActivity.this, MainActivity.class);
+                Intent confirm=new Intent(NextActivity.this, LoginActivity.class);
                 startActivity(confirm);
             }
         });

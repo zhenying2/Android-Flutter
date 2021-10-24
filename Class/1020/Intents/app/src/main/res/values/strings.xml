@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Intents</string>
+    <string-array name="mainMenu">
+        <item>명시적 인텐트 예제</item>
+        <item>암시적 인텐트 예제</item>
+    </string-array>
+
+    <array name="intentList">
+        <item>1.ACTION_DIAL</item>
+        <item>2.ACTION_CALL</item>
+        <item>3.ACTION_SEARCH</item>
+        <item>4.ACTION_SEND[SMS]</item>
+        <item>5.ACTION_WEB_SEARCH</item>
+        <item>6.ACTION_PICK</item>
+        <item>7.ACTION_VIEW1[웹]</item>
+        <item>8.ACTION_VIEW2[문자]</item>
+        <item>9.ACTION_VIEW3[지도]</item>
+    </array>
+</resources>
