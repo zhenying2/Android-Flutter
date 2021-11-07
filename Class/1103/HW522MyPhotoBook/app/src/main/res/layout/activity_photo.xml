@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    android:clickable="true"
+    android:onClick="closePicture"
+    tools:context=".Photo">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="90dp"/>
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20pt"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColorHint="#000FF0"
+        android:textColor="#61380B"/>
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="10pt"
+        android:layout_marginRight="12dp"
+        android:gravity="right"
+        android:textStyle="bold"
+        android:textColorHint="#000FF0"
+        android:textColor="#61380B"/>
+    <ImageView
+        android:id="@+id/picture"
+        android:layout_marginTop="5dp"
+        android:layout_width="285dp"
+        android:layout_height="285dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter" />
+    <TextView
+        android:id="@+id/artist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12pt"
+        android:gravity="center"
+        android:textColor="#22741C"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"/>
+
+</LinearLayout>

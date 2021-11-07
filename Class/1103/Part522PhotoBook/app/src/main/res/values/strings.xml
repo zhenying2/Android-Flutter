@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Part5-2-2-PhotoBook</string>
+
+    <string name="title01">With my dog</string>
+    <string name="artist01">진영이와 뚱이</string>
+    <string name="picture01">pic1</string>
+    <string name="title02">Me</string>
+    <string name="artist02">김진영</string>
+    <string name="picture02">pic2</string>
+    <string name="title03">My Dog</string>
+    <string name="artist03">뚱</string>
+    <string name="picture03">pic3</string>
+</resources>

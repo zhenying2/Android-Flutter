@@ -1,0 +1,2 @@
+rootProject.name = "Part5-2-2-PhotoBook"
+include ':app'

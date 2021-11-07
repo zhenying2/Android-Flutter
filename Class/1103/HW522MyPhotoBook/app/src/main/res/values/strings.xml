@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Jinyoung PhotoBook</string>
+        <string name="title01">진영이와 뚱이</string>
+        <string name="time01">2021.09.27</string>
+        <string name="artist01">사이좋은 내 동생과 한장 찰~칵</string>
+        <string name="picture01">pic1</string>
+        <string name="title02">진영이의 셀카</string>
+        <string name="time02">2020.11.27</string>
+        <string name="artist02">빨간 모자 and 목도리로 꾸며보았~다!</string>
+        <string name="picture02">pic2</string>
+        <string name="title03">내동생 뚱이</string>
+        <string name="time03">2021.08.27</string>
+        <string name="artist03">웃으면 더 귀여운 동생 :)</string>
+        <string name="picture03">pic3</string>
+
+</resources>
