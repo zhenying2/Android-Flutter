@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tween Animation" />
+
+    <LinearLayout
+        android:id="@+id/buttonRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonAlpha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Fade" />
+
+        <Button
+            android:id="@+id/buttonScale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Grow" />
+
+        <Button
+            android:id="@+id/buttonTranslate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Move" />
+
+        <Button
+            android:id="@+id/buttonRotate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Spin" />
+
+        <Button
+            android:id="@+id/buttonAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="All" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout01"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/imageViewForTweening"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minWidth="90px"
+            android:minHeight="90px"
+            android:layout_margin="115px"/>
+    </LinearLayout>
+
+</LinearLayout>

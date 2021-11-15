@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="16dp">
+
+        <Button
+            android:id="@+id/btn_piegraph"
+            android:text="Pie graph"
+            android:gravity="left|center_vertical"
+            android:textSize="11dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:drawableLeft="@drawable/ic_baseline_pie_chart_24"
+            android:background="#EC407A"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/btn_linegraph"
+            android:text="Line graph"
+            android:textSize="11dp"
+            android:gravity="left|center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:drawableLeft="@drawable/ic_baseline_timeline_24"
+            android:background="#EC407A"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/btn_bargraph"
+            android:text="Bar graph"
+            android:gravity="left|center_vertical"
+            android:textSize="11dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:drawableLeft="@drawable/ic_baseline_bar_chart_24"
+            android:background="#EC407A"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/main_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"/>
+
+</LinearLayout>
