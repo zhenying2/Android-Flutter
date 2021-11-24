@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">GridView1</string>
+    <string name="mov01">장르만 로맨스</string>
+    <string name="mov02">이터널스</string>
+    <string name="mov03">디어 에반 핸슨</string>
+    <string name="mov04">듄</string>
+    <string name="mov05">장르만 로맨스</string>
+    <string name="mov06">강릉</string>
+    <string name="mov07">괴짜들의 로맨스</string>
+    <string name="mov08">아담스 패밀리 2</string>
+    <string name="mov09">귀멸의 칼날:남매의 연</string>
+    <string name="mov10">아네트</string>
+</resources>

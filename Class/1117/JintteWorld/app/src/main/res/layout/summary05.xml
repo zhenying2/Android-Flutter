@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginStart="10dp"
+    android:stretchColumns="*"
+    android:layout_marginLeft="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginTop="32dp"
+    android:id="@+id/table01"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <TableRow android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView android:background="@color/white"
+            android:layout_span="2"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="8pt"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="전설속의 스페인해적선을 타고 모험을 떠나요!"/>
+    </TableRow>
+    <TableRow android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp">
+        <TextView android:background="@color/white"
+            android:layout_marginBottom="10dp"
+            android:layout_span="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="7pt"
+            android:textColor="@color/black"
+            android:text="높은 파도를 헤치며 고대의 보물을 찾아 떠나는 스페인해적선! 이곳에 탑승한 당신은 이제부터 진정한 해적!"/>
+    </TableRow>
+    <TableRow
+        android:layout_marginBottom="2dp"
+        android:background="@color/purple_200"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:background="@color/white"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="8pt"
+            android:textColor="@color/black"
+            android:text="운행 시간"/>
+        <TextView
+            android:background="@color/white"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="8pt"
+            android:textColor="@color/black"
+            android:text="10:00 - 21:00"/>
+    </TableRow>
+    <TableRow
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/purple_200"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:background="@color/white"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="8pt"
+            android:textColor="@color/black"
+            android:text="탑승 인원"/>
+        <TextView
+            android:background="@color/white"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="8pt"
+            android:textColor="@color/black"
+            android:text="56명"/>
+    </TableRow>
+    <TableRow
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/purple_200"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:background="@color/white"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="8pt"
+            android:textColor="@color/black"
+            android:text="탑승\n제한"/>
+        <TextView
+            android:background="@color/white"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="8pt"
+            android:textColor="@color/black"
+            android:text="110cm 이하 / 200cm 이상\n5세 이하 / 64세 이상"/>
+    </TableRow>
+    <TableRow
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/purple_200"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:background="@color/white"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="8pt"
+            android:textColor="@color/black"
+            android:text="추가\n정보"/>
+        <TextView
+            android:background="@color/white"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="8pt"
+            android:textColor="@color/black"
+            android:text="마감 시간과 입장 시간이 다를 수\n있으니 양지하여 주세요."/>
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="2dp"
+        android:background="@color/purple_200"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:background="@color/white"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="8pt"
+            android:textColor="@color/black"
+            android:text="위치"/>
+        <TextView
+            android:background="@color/white"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="8pt"
+            android:textColor="@color/black"
+            android:text="어드벤처 1층 가든스테이디 뒤편"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/map05"
+            android:background="@color/white"
+            android:layout_marginBottom="10dp"
+            android:layout_span="2"
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:src="@drawable/map05"/>
+    </TableRow>
+</TableLayout>

@@ -1,0 +1,2 @@
+rootProject.name = "GridView1"
+include ':app'
