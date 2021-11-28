@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.exercise.MainActivity">
+    <item
+        android:id="@+id/menu1"
+        android:title="운동"
+        app:showAsAction="never">
+    </item>
+    <item
+        android:id="@+id/menu2"
+        android:title="식단"
+        app:showAsAction="never">
+    </item>
+    <item
+        android:id="@+id/menu3"
+        android:title="나의 다이어리"
+        app:showAsAction="never">
+    </item>
+    <item
+        android:id="@+id/menu4"
+        android:title="로그아웃"
+        app:showAsAction="never">
+    </item>
+</menu>
