@@ -43,10 +43,10 @@ public class ManageFood extends AppCompatActivity implements View.OnClickListene
             int i=0;
             while(cursor.moveToNext()){
                 //정보 추출
-                String str_date=cursor.getString(cursor.getColumnIndex("date"));
-                String str_breakfast=cursor.getString(cursor.getColumnIndex("breakfast"));
-                String str_lunch=cursor.getString(cursor.getColumnIndex("lunch"));
-                String str_dinner=cursor.getString(cursor.getColumnIndex("dinner"));
+                String str_date=cursor.getString(cursor.getColumnIndexOrThrow("date"));
+                String str_breakfast=cursor.getString(cursor.getColumnIndexOrThrow("breakfast"));
+                String str_lunch=cursor.getString(cursor.getColumnIndexOrThrow("lunch"));
+                String str_dinner=cursor.getString(cursor.getColumnIndexOrThrow("dinner"));
 
                 //정보 목록 아이템 만들기
                 LinearLayout layout_item=new LinearLayout(this);
@@ -62,23 +62,23 @@ public class ManageFood extends AppCompatActivity implements View.OnClickListene
 
                 //아침
                 TextView tv_breakfast=new TextView(this);
-                tv_date.setText(str_breakfast);
+                tv_breakfast.setText(str_breakfast);
                 layout_item.addView(tv_breakfast);
 
                 //점심
                 TextView tv_lunch=new TextView(this);
-                tv_date.setText(str_lunch);
+                tv_lunch.setText(str_lunch);
                 layout_item.addView(tv_lunch);
 
                 //3.4 저녁
                 TextView tv_dinner=new TextView(this);
-                tv_date.setText(str_dinner);
+                tv_dinner.setText(str_dinner);
                 layout_item.addView(tv_dinner);
 
                 //클릭 리스너 설정
                 layout_item.setOnClickListener(this);
 
-                //6 인물정보 레이아웃에 추가
+                //레이아웃에 추가
                 layout.addView(layout_item);
                 i++;
             }
@@ -150,12 +150,10 @@ public class ManageFood extends AppCompatActivity implements View.OnClickListene
 
         //나의 다이어리
         if (id == R.id.menu3){
-            /*
-            Intent it = new Intent(this, exerciseclass명.class);
+            Intent it = new Intent(this, MyDiary.class);
             startActivity(it);
             finish();
             return true;
-            */
         }
 
         //로그아웃

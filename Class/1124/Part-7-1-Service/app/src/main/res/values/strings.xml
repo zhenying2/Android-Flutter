@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Part-7-1-Service</string>
+    <string name="text1">서비스연결</string>
+    <string name="text2">소리재생</string>
+</resources>

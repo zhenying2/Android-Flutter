@@ -60,12 +60,10 @@ public class FoodWrite extends AppCompatActivity {
 
         //나의 다이어리
         if (id == R.id.menu3){
-            /*
-            Intent it = new Intent(this, exerciseclass명.class);
+            Intent it = new Intent(this, MyDiary.class);
             startActivity(it);
             finish();
             return true;
-            */
         }
 
         //로그아웃

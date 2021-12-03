@@ -1,0 +1,2 @@
+rootProject.name = "JinHW"
+include ':app'

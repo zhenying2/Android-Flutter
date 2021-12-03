@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.example.mobile_project.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.example.mobile_project.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_FoodFragment"
+            app:destination="@+id/FoodFragment"/>
+        <action
+            android:id="@+id/action_SecondFragment_to_PillFragment"
+            app:destination="@+id/PillFragment"/>
+    </fragment>
+
+    <!--식단 관리-->
+    <fragment
+        android:id="@+id/FoodFragment"
+        android:name="com.example.mobile_project.FoodFragment"
+        android:label="@string/food_fragment_label"
+        tools:layout="@layout/fragment_food">
+
+        <action
+            android:id="@+id/action_FoodFragment_to_SecondFragment"
+            app:destination="@+id/SecondFragment"/>
+        <action
+            android:id="@+id/action_FoodFragment_to_FoodWriteFragment"
+            app:destination="@+id/FoodWriteFragment"/>
+    </fragment>
+
+    <!--약 관리-->
+    <fragment
+        android:id="@+id/PillFragment"
+        android:name="com.example.mobile_project.PillFragment"
+        android:label="@string/pill_fragment_label"
+        tools:layout="@layout/fragment_pill">
+
+        <action
+            android:id="@+id/action_PillFragment_to_SecondFragment"
+            app:destination="@+id/SecondFragment"/>
+    </fragment>
+
+    <!--식단관리_글쓰기-->
+    <fragment
+        android:id="@+id/FoodWriteFragment"
+        android:name="com.example.mobile_project.FoodWriteFragment"
+        android:label="식단 글쓰기"
+        tools:layout="@layout/fragment_food_write">
+
+        <action
+            android:id="@+id/action_FoodWriteFragment_to_FoodFragment"
+            app:destination="@+id/FoodFragment"/>
+    </fragment>
+
+    <!--저장된 식단 글쓰기 클릭시-->
+    <fragment
+        android:id="@+id/FoodModifyFragment"
+        android:name="com.example.mobile_project.FoodModifyFragment"
+        android:label="식단 글 수정"
+        tools:layout="@layout/fragment_food_modify">
+        <action
+            android:id="@+id/action_FoodModifyFragment_to_FoodFragment"
+            app:destination="@+id/FoodFragment"/>
+    </fragment>
+</navigation>

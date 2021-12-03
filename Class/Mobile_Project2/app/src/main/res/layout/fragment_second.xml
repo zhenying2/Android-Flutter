@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="100dp"
+    android:orientation="vertical"
+    tools:context=".SecondFragment">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:text="나의 식단/약 관리"
+        android:textSize="10pt">
+    </TextView>
+
+    <View
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#808080"/>
+
+    <Button
+        android:id="@+id/manage_food"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:layout_marginLeft="18dp"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/ic_baseline_food_bank_24"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textSize="50px"
+        android:textStyle="bold"
+        android:text="나의 식단 관리"
+        />
+
+    <Button
+        android:id="@+id/manage_pill"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="18dp"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/ic_baseline_medical_services_24"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textSize="50px"
+        android:textStyle="bold"
+        android:text="나의 약 관리"
+        />
+
+</LinearLayout>

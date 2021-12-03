@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">AppToyProject</string>
+    <string name="nowing">공구진행중</string>
+    <string name="before">공구예정</string>
+    <string name="finished">공구종료</string>
+</resources>

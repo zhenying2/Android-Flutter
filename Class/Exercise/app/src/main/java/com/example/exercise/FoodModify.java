@@ -52,10 +52,10 @@ public class FoodModify extends AppCompatActivity {
 
             //추출된 데이터 할당
             if (cursor.moveToNext()){
-                str_date1=cursor.getString(cursor.getColumnIndex("date"));
-                str_breakfast1=cursor.getString(cursor.getColumnIndex("breakfast"));
-                str_lunch1=cursor.getString(cursor.getColumnIndex("lunch"));
-                str_dinner1=cursor.getString(cursor.getColumnIndex("dinner"));
+                str_date1=cursor.getString(cursor.getColumnIndexOrThrow("date"));
+                str_breakfast1=cursor.getString(cursor.getColumnIndexOrThrow("breakfast"));
+                str_lunch1=cursor.getString(cursor.getColumnIndexOrThrow("lunch"));
+                str_dinner1=cursor.getString(cursor.getColumnIndexOrThrow("dinner"));
             }
 
             sqlitedb.close();
@@ -118,12 +118,10 @@ public class FoodModify extends AppCompatActivity {
 
         //나의 다이어리
         if (id == R.id.menu3){
-            /*
-            Intent it = new Intent(this, exerciseclass명.class);
+            Intent it = new Intent(this, MyDiary.class);
             startActivity(it);
             finish();
             return true;
-            */
         }
 
         //로그아웃

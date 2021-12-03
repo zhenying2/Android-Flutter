@@ -35,7 +35,7 @@ public class FoodMainActivity extends AppCompatActivity {
         manage_pill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it=new Intent(getApplicationContext(),ManageFood.class);
+                Intent it=new Intent(getApplicationContext(),ManagePill.class);
                 startActivity(it);
                 finish();
             }
@@ -74,12 +74,10 @@ public class FoodMainActivity extends AppCompatActivity {
 
         //나의 다이어리
         if (id == R.id.menu3){
-            /*
-            Intent it = new Intent(this, exerciseclass명.class);
+            Intent it = new Intent(this, MyDiary.class);
             startActivity(it);
             finish();
             return true;
-            */
         }
 
         //로그아웃
