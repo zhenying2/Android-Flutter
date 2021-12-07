@@ -8,11 +8,14 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,9 +32,11 @@ public class MyDiary extends AppCompatActivity implements View.OnClickListener {
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //diary memo 레이아웃 인식
-        LinearLayout layout=(LinearLayout)findViewById(R.id.diarymemolist);
+        //toolbar 뒤로가기 기능
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //diary memo 레이아웃 인식
+        TableLayout layout=(TableLayout)findViewById(R.id.diarymemolist);
         try{
             //diary table에서 정보 추출
             dbmanager=new DBManager3(this);
@@ -46,27 +51,29 @@ public class MyDiary extends AppCompatActivity implements View.OnClickListener {
                 String str_memo=cursor.getString(cursor.getColumnIndexOrThrow("memo"));
 
                 //정보 목록 아이템 만들기
-                LinearLayout layout_item=new LinearLayout(this);
-                layout_item.setOrientation(LinearLayout.HORIZONTAL);
-                layout_item.setPadding(5,5,5,5);
-                layout_item.setId(i);
-                layout_item.setTag(str_date);
+                TableRow row=new TableRow(this);
+                row.setLayoutParams(new TableLayout.LayoutParams());
+                row.setPadding(16,0,16,16);
+                row.setId(i);
+                row.setTag(str_date);
 
                 //날짜
                 TextView tv_date=new TextView(this);
                 tv_date.setText(str_date);
-                layout_item.addView(tv_date);
+                tv_date.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER_VERTICAL);
+                row.addView(tv_date);
 
                 //메모
                 TextView tv_memo=new TextView(this);
                 tv_memo.setText(str_memo);
-                layout_item.addView(tv_memo);
+                tv_memo.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER_VERTICAL);
+                row.addView(tv_memo);
 
                 //클릭 리스너 설정
-                layout_item.setOnClickListener(this);
+                row.setOnClickListener(this);
 
                 //레이아웃에 추가
-                layout.addView(layout_item);
+                layout.addView(row,new TableLayout.LayoutParams());
                 i++;
             }
             cursor.close();
@@ -84,7 +91,6 @@ public class MyDiary extends AppCompatActivity implements View.OnClickListener {
             public void onClick(View view) {
                 Intent it=new Intent(getApplicationContext(),MyDiaryWrite.class);
                 startActivity(it);
-                finish();
             }
 
         });
@@ -102,7 +108,6 @@ public class MyDiary extends AppCompatActivity implements View.OnClickListener {
         Intent it=new Intent(this,MyDiaryModify.class);
         it.putExtra("it_name",str_date);
         startActivity(it);
-        finish();
     }
 
     @Override
@@ -122,7 +127,6 @@ public class MyDiary extends AppCompatActivity implements View.OnClickListener {
             /*
             Intent it = new Intent(this, exerciseclass명.class);
             startActivity(it);
-            finish();
             return true;
             */
         }
@@ -131,7 +135,7 @@ public class MyDiary extends AppCompatActivity implements View.OnClickListener {
         if (id == R.id.menu2){
             Intent it = new Intent(this, FoodMainActivity.class);
             startActivity(it);
-            finish();
+
             return true;
         }
 
@@ -139,7 +143,6 @@ public class MyDiary extends AppCompatActivity implements View.OnClickListener {
         if (id == R.id.menu3){
             Intent it = new Intent(this, MyDiary.class);
             startActivity(it);
-            finish();
             return true;
         }
 
@@ -148,9 +151,14 @@ public class MyDiary extends AppCompatActivity implements View.OnClickListener {
             /*
             Intent it = new Intent(this, exerciseclass명.class);
             startActivity(it);
-            finish();
             return true;
             */
+        }
+
+        //back키 눌렀을 때
+        if (item.getItemId()==android.R.id.home){
+            finish();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

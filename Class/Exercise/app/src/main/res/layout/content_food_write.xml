@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginTop="45dp">
+    android:layout_marginTop="100dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,10 +26,9 @@
     </LinearLayout>
 
     <TableLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:stretchColumns="*"
@@ -45,6 +44,13 @@
                 android:gravity="center"
                 android:background="@drawable/table_outside"
                 android:textSize="15sp"/>
+            <ImageView
+                android:id="@+id/img_breakfast"
+                android:layout_width="110dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_image" />
             <EditText
                 android:id="@+id/breakfast"
                 android:layout_width="match_parent"
@@ -65,6 +71,13 @@
                 android:gravity="center"
                 android:background="@drawable/table_outside"
                 android:textSize="15sp"/>
+            <ImageView
+                android:id="@+id/img_lunch"
+                android:layout_width="110dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_image" />
             <EditText
                 android:id="@+id/lunch"
                 android:layout_width="match_parent"
@@ -85,6 +98,13 @@
                 android:gravity="center"
                 android:background="@drawable/table_outside"
                 android:textSize="15sp"/>
+            <ImageView
+                android:id="@+id/img_dinner"
+                android:layout_width="110dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_image" />
             <EditText
                 android:id="@+id/dinner"
                 android:layout_width="match_parent"
@@ -97,7 +117,7 @@
     </TableLayout>
     <Button
         android:id="@+id/foodmemo_save"
-        android:layout_margin="15dp"
+        android:layout_margin="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="register"

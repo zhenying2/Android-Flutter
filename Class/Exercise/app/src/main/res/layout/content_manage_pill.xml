@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="45dp"
+    android:layout_marginTop="100dp"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="나의 약 관리"
+            android:text=" 나의 약 관리"
             android:drawableLeft="@drawable/ic_baseline_medical_services_24"
             android:gravity="center_vertical"
             android:layout_gravity="center_vertical|center_horizontal"

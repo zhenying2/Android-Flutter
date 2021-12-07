@@ -23,6 +23,7 @@ public class MyDiaryModify extends AppCompatActivity {
     SQLiteDatabase sqlitedb;
 
     String str_date1,str_memo1;
+    String re_date1,re_memo1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,9 @@ public class MyDiaryModify extends AppCompatActivity {
         setContentView(R.layout.activity_my_diary_modify);
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //toolbar 뒤로가기 기능
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //정보 출력 뷰 인식
         EditText ed_date1=(EditText)findViewById(R.id.diary_date1);
@@ -71,7 +75,10 @@ public class MyDiaryModify extends AppCompatActivity {
         modify_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                update(ed_date1.toString(),ed_memo1.toString());
+                //출력값도 갱신
+                re_date1=ed_date1.getText().toString();
+                re_memo1=ed_memo1.getText().toString();
+                update(re_date1,re_memo1);
             }
         });
     }
@@ -93,7 +100,6 @@ public class MyDiaryModify extends AppCompatActivity {
             /*
             Intent it = new Intent(this, exerciseclass명.class);
             startActivity(it);
-            finish();
             return true;
             */
         }
@@ -102,7 +108,6 @@ public class MyDiaryModify extends AppCompatActivity {
         if (id == R.id.menu2){
             Intent it = new Intent(this, FoodMainActivity.class);
             startActivity(it);
-            finish();
             return true;
         }
 
@@ -110,7 +115,6 @@ public class MyDiaryModify extends AppCompatActivity {
         if (id == R.id.menu3){
             Intent it = new Intent(this, MyDiary.class);
             startActivity(it);
-            finish();
             return true;
         }
 
@@ -119,36 +123,47 @@ public class MyDiaryModify extends AppCompatActivity {
             /*
             Intent it = new Intent(this, exerciseclass명.class);
             startActivity(it);
-            finish();
             return true;
             */
+        }
+
+        //back키 눌렀을 때
+        if (item.getItemId()==android.R.id.home){
+            finish();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
     //수정 버튼 클릭시
-    void update(String ed_date1,String ed_memo1){
+    void update(String re_date1,String re_memo1){
         try{
             sqlitedb=dbmanager.getWritableDatabase();
             ContentValues contentValues=new ContentValues();
-            contentValues.put("date",ed_date1);
-            contentValues.put("memo",ed_memo1);
-
-            //출력값도 갱신
-            str_date1=ed_date1;
-            str_memo1=ed_memo1;
-
-            sqlitedb.update("Diary",contentValues,"date = ?",new String[]{str_date1});
+            contentValues.put("date",re_date1);
+            contentValues.put("memo",re_memo1);
+            sqlitedb.update("Diary",contentValues,"date = ?",new String[]{re_date1});
             sqlitedb.close();
             dbmanager.close();
+
+            //정보 출력 뷰 인식
+            EditText ed_date1=(EditText)findViewById(R.id.diary_date1);
+            EditText ed_memo1=(EditText)findViewById(R.id.diary_memo1);
+
+            //데이터 출력 변경
+            //다이어리 작석일자
+            ed_date1.setText(re_date1);
+
+            //다이어리 메모 내용
+            ed_memo1.setText(re_memo1);
+
         }catch (SQLiteException e){
             Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
         }
-
+        Toast.makeText(this,"수정완료",Toast.LENGTH_SHORT).show();
         Intent it=new Intent(this,MyDiary.class);
         startActivity(it);
-        finish();
     }
 
     //삭제 버튼 클릭시
@@ -162,9 +177,8 @@ public class MyDiaryModify extends AppCompatActivity {
         }catch (SQLiteException e){
             Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
         }
-
+        Toast.makeText(this,"삭제되었습니다.",Toast.LENGTH_SHORT).show();
         Intent it=new Intent(this,MyDiary.class);
         startActivity(it);
-        finish();
     }
 }

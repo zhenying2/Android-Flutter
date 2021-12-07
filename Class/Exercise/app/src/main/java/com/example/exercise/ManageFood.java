@@ -9,11 +9,15 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,8 +34,11 @@ public class ManageFood extends AppCompatActivity implements View.OnClickListene
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //toolbar 뒤로가기 기능
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         //food memo 레이아웃 인식
-        LinearLayout layout=(LinearLayout)findViewById(R.id.foodmemolist);
+        TableLayout layout=(TableLayout)findViewById(R.id.foodmemolist);
 
         try{
             //Food table에서 정보 추출
@@ -47,40 +54,48 @@ public class ManageFood extends AppCompatActivity implements View.OnClickListene
                 String str_breakfast=cursor.getString(cursor.getColumnIndexOrThrow("breakfast"));
                 String str_lunch=cursor.getString(cursor.getColumnIndexOrThrow("lunch"));
                 String str_dinner=cursor.getString(cursor.getColumnIndexOrThrow("dinner"));
+                String str_uri1=cursor.getString(cursor.getColumnIndexOrThrow("uri1"));
+                String str_uri2=cursor.getString(cursor.getColumnIndexOrThrow("uri2"));
+                String str_uri3=cursor.getString(cursor.getColumnIndexOrThrow("uri3"));
 
                 //정보 목록 아이템 만들기
-                LinearLayout layout_item=new LinearLayout(this);
-                layout_item.setOrientation(LinearLayout.HORIZONTAL);
-                layout_item.setPadding(5,5,5,5);
-                layout_item.setId(i);
-                layout_item.setTag(str_date);
+                TableRow row=new TableRow(this);
+                row.setLayoutParams(new TableLayout.LayoutParams());
+                row.setPadding(16,0,16,16);
+                row.setId(i);
+                row.setTag(str_date);
 
                 //날짜
                 TextView tv_date=new TextView(this);
                 tv_date.setText(str_date);
-                layout_item.addView(tv_date);
+                tv_date.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER_VERTICAL);
+                row.addView(tv_date);
 
                 //아침
                 TextView tv_breakfast=new TextView(this);
                 tv_breakfast.setText(str_breakfast);
-                layout_item.addView(tv_breakfast);
+                tv_breakfast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER_VERTICAL);
+                row.addView(tv_breakfast);
 
                 //점심
                 TextView tv_lunch=new TextView(this);
                 tv_lunch.setText(str_lunch);
-                layout_item.addView(tv_lunch);
+                tv_lunch.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER_VERTICAL);
+                row.addView(tv_lunch);
 
-                //3.4 저녁
+                //저녁
                 TextView tv_dinner=new TextView(this);
                 tv_dinner.setText(str_dinner);
-                layout_item.addView(tv_dinner);
+                tv_dinner.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER_VERTICAL);
+                row.addView(tv_dinner);
 
                 //클릭 리스너 설정
-                layout_item.setOnClickListener(this);
+                row.setOnClickListener(this);
 
                 //레이아웃에 추가
-                layout.addView(layout_item);
+                layout.addView(row,new TableLayout.LayoutParams());
                 i++;
+
             }
             cursor.close();
             sqlitedb.close();
@@ -97,7 +112,6 @@ public class ManageFood extends AppCompatActivity implements View.OnClickListene
             public void onClick(View view) {
                 Intent it=new Intent(getApplicationContext(),FoodWrite.class);
                 startActivity(it);
-                finish();
             }
 
         });
@@ -115,7 +129,6 @@ public class ManageFood extends AppCompatActivity implements View.OnClickListene
         Intent it=new Intent(this,FoodModify.class);
         it.putExtra("it_name",str_date);
         startActivity(it);
-        finish();
     }
 
     @Override
@@ -135,7 +148,6 @@ public class ManageFood extends AppCompatActivity implements View.OnClickListene
             /*
             Intent it = new Intent(this, exerciseclass명.class);
             startActivity(it);
-            finish();
             return true;
             */
         }
@@ -144,7 +156,6 @@ public class ManageFood extends AppCompatActivity implements View.OnClickListene
         if (id == R.id.menu2){
             Intent it = new Intent(this, FoodMainActivity.class);
             startActivity(it);
-            finish();
             return true;
         }
 
@@ -152,7 +163,6 @@ public class ManageFood extends AppCompatActivity implements View.OnClickListene
         if (id == R.id.menu3){
             Intent it = new Intent(this, MyDiary.class);
             startActivity(it);
-            finish();
             return true;
         }
 
@@ -161,9 +171,14 @@ public class ManageFood extends AppCompatActivity implements View.OnClickListene
             /*
             Intent it = new Intent(this, exerciseclass명.class);
             startActivity(it);
-            finish();
             return true;
             */
+        }
+
+        //back키 눌렀을 때
+        if (item.getItemId()==android.R.id.home){
+            finish();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

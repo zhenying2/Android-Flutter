@@ -1,6 +1,7 @@
 package com.example.exercise;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.content.Intent;
@@ -17,6 +18,11 @@ public class FoodMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_main);
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        //toolbar 뒤로가기 버튼
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         manage_food=(Button)findViewById(R.id.manage_food); //나의 식단관리 버튼
         manage_pill=(Button)findViewById(R.id.manage_pill); //나의 약 관리 버튼
@@ -59,7 +65,6 @@ public class FoodMainActivity extends AppCompatActivity {
             /*
             Intent it = new Intent(this, exerciseclass명.class);
             startActivity(it);
-            finish();
             return true;
             */
         }
@@ -68,7 +73,6 @@ public class FoodMainActivity extends AppCompatActivity {
         if (id == R.id.menu2){
             Intent it = new Intent(this, FoodMainActivity.class);
             startActivity(it);
-            finish();
             return true;
         }
 
@@ -76,7 +80,6 @@ public class FoodMainActivity extends AppCompatActivity {
         if (id == R.id.menu3){
             Intent it = new Intent(this, MyDiary.class);
             startActivity(it);
-            finish();
             return true;
         }
 
@@ -85,9 +88,14 @@ public class FoodMainActivity extends AppCompatActivity {
             /*
             Intent it = new Intent(this, exerciseclass명.class);
             startActivity(it);
-            finish();
             return true;
             */
+        }
+
+        //back키 눌렀을 때
+        if (item.getItemId()==android.R.id.home){
+            finish();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

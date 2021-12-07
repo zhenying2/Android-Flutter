@@ -17,5 +17,7 @@ public class DBManager3 extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS Diary");
+        onCreate(db);
     }
 }

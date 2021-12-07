@@ -11,10 +11,13 @@ public class DBManager extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table Food (date text, breakfast text, lunch text, dinner text)");
+        db.execSQL("create table Food (date text, breakfast text, lunch text, dinner text, uri1 text, uri2 text, uri3 text)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS Food");
+        onCreate(db);
     }
+
 }

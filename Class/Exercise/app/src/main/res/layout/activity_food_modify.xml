@@ -21,6 +21,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <!--content 출력-->
-    <include layout="@layout/content_food_modify" />
+    <include
+        layout="@layout/content_food_modify" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
