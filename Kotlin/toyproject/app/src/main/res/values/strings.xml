@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">GongGu</string>
+    <string name="nowing">공구진행중</string>
+    <string name="before">공구예정</string>
+    <string name="finished">공구종료</string>
+    <string name="join_buying">공구 신청하기</string>
+    <string name="cancel_buying">신청 취소</string>
+</resources>

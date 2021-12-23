@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:contentInsetStart="0dp"
+        android:contentInsetLeft="0dp"
+        android:contentInsetEnd="0dp"
+        android:contentInsetRight="0dp"
+        android:elevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginLeft="28dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_back_arrow" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="공구 등록하기"
+                android:textAlignment="center"
+                android:textColor="#404040"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/create_goggu"
+                android:layout_width="48dp"
+                android:layout_height="19dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="297dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/blue_badge"
+                android:text="등록"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="26dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/et_write_title"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/edittext_title_style"
+                android:hint="제목을 입력해주세요."
+                android:textSize="16sp"/>
+
+
+            <EditText
+                android:id="@+id/et_write_content"
+                android:layout_width="match_parent"
+                android:layout_height="196dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/edittext_write_content_layout"
+                android:gravity="top"
+                android:hint="내용을 입력해주세요."
+                android:padding="8dp"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/Linearlayout_product"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout2"
+            tools:layout_editor_absoluteX="0dp">
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="83dp"
+                android:layout_height="36dp"
+                android:background="@drawable/post_rounded_blue"
+                android:gravity="center"
+                android:text="예상 가격"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_price"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginLeft="12dp"
+                android:background="@drawable/post_rounded_gray"
+                android:hint="내용을 입력하세요."
+                android:inputType="number"
+                android:paddingLeft="8dp"
+                android:textSize="12sp"
+                android:layout_marginBottom="3dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Linearlayout_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/Linearlayout_product"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="83dp"
+                android:layout_height="36dp"
+                android:background="@drawable/post_rounded_blue"
+                android:gravity="center"
+                android:text="신청 기간"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_date"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginLeft="12dp"
+                android:background="@drawable/post_rounded_gray"
+                android:hint="YYYY / MM / DD ~ YYYY / MM / DD"
+                android:paddingLeft="8dp"
+                android:textSize="12sp"
+                android:layout_marginBottom="3dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Linearlayout_startdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/Linearlayout_price"
+            tools:layout_editor_absoluteX="0dp">
+
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="83dp"
+                android:layout_height="36dp"
+                android:background="@drawable/post_rounded_blue"
+                android:gravity="center"
+                android:text="상품 링크"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_link"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginLeft="12dp"
+                android:background="@drawable/post_rounded_gray"
+                android:hint="https://search.shopping.naver..."
+                android:paddingLeft="8dp"
+                android:textSize="12sp"
+                android:layout_marginBottom="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Linearlayout_enddate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/Linearlayout_startdate"
+            tools:layout_editor_absoluteX="0dp">
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="83dp"
+                android:layout_height="36dp"
+                android:background="@drawable/post_rounded_blue"
+                android:gravity="center"
+                android:text="오픈 채팅"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_openchatlink"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginLeft="12dp"
+                android:background="@drawable/post_rounded_gray"
+                android:hint="https://open.kakao.com/o/team2"
+                android:paddingLeft="8dp"
+                android:textSize="12sp"
+                android:layout_marginBottom="3dp"/>
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
