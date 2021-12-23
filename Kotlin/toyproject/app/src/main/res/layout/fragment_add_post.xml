@@ -25,13 +25,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_marginLeft="28dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_back_arrow" />
-
             <TextView
                 android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
@@ -48,7 +41,7 @@
                 android:layout_width="48dp"
                 android:layout_height="19dp"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="297dp"
+                android:layout_marginStart="270dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/blue_badge"
                 android:text="등록"
@@ -62,9 +55,9 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="26dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
@@ -74,8 +67,8 @@
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginTop="20dp"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -86,19 +79,19 @@
                 android:layout_height="48dp"
                 android:background="@drawable/edittext_title_style"
                 android:hint="제목을 입력해주세요."
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
 
             <EditText
                 android:id="@+id/et_write_content"
                 android:layout_width="match_parent"
-                android:layout_height="196dp"
+                android:layout_height="252dp"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/edittext_write_content_layout"
                 android:gravity="top"
                 android:hint="내용을 입력해주세요."
                 android:padding="8dp"
-                android:textSize="12sp"/>
+                android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -111,6 +104,7 @@
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/linearLayout2"
             tools:layout_editor_absoluteX="0dp">
+
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="83dp"
@@ -126,12 +120,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:layout_marginLeft="12dp"
+                android:layout_marginBottom="3dp"
                 android:background="@drawable/post_rounded_gray"
                 android:hint="내용을 입력하세요."
                 android:inputType="number"
                 android:paddingLeft="8dp"
-                android:textSize="12sp"
-                android:layout_marginBottom="3dp"/>
+                android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -159,11 +153,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:layout_marginLeft="12dp"
+                android:layout_marginBottom="3dp"
                 android:background="@drawable/post_rounded_gray"
                 android:hint="YYYY / MM / DD ~ YYYY / MM / DD"
                 android:paddingLeft="8dp"
-                android:textSize="12sp"
-                android:layout_marginBottom="3dp"/>
+                android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -191,11 +185,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:layout_marginLeft="12dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/post_rounded_gray"
                 android:hint="https://search.shopping.naver..."
                 android:paddingLeft="8dp"
-                android:textSize="12sp"
-                android:layout_marginBottom="10dp"/>
+                android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -205,6 +199,7 @@
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@+id/Linearlayout_startdate"
             tools:layout_editor_absoluteX="0dp">
+
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="83dp"
@@ -220,11 +215,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:layout_marginLeft="12dp"
+                android:layout_marginBottom="3dp"
                 android:background="@drawable/post_rounded_gray"
                 android:hint="https://open.kakao.com/o/team2"
                 android:paddingLeft="8dp"
-                android:textSize="12sp"
-                android:layout_marginBottom="3dp"/>
+                android:textSize="12sp" />
         </LinearLayout>
 
 

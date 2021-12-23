@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="35dp"
-    android:layout_marginRight="30dp">
+    android:layout_marginLeft="24dp"
+    android:layout_marginRight="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,52 +21,17 @@
             android:textColor="#000000"
             android:text="내가 참여중인\n공구리숙트"/>
 
-        <!--참여중인 공구-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="16dp"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="참여중인 공구"
-                android:textSize="16sp"
-                android:textColor="#5a6684"
-                android:layout_marginRight="4dp"
-                android:fontFamily="sans-serif"/>
-            <View
-                android:layout_width="203dp"
-                android:layout_height="1dp"
-                android:layout_gravity="center_vertical"
-                android:background="#5a6684">
-            </View>
-        </LinearLayout>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_favorite_items"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
         <!--진행중인 공구-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="40dp"
             android:layout_marginBottom="16dp"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="진행중인 공구"
+                android:text="내가 진행중인 공구"
                 android:layout_marginRight="4dp"
                 android:textSize="16sp"
                 android:textColor="#5a6684"
@@ -83,6 +48,7 @@
             android:layout_height="wrap_content">
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_leading_items"
+                tools:listitem="@layout/main_items"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_constraintBottom_toBottomOf="parent"

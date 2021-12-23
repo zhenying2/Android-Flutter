@@ -24,13 +24,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".FavoriteActivity"
-            android:exported="true"></activity>
+        <activity android:name=".DetailPostView"
+            android:exported="true" />
         <activity android:name=".MainActivity"
             android:exported="true">
-
         </activity>
+        <activity android:name=".MyDetailPostView"
+            android:exported="true"/>
     </application>
 
 </manifest>

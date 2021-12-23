@@ -47,20 +47,4 @@ class RetrofitManager {
         })
     }
 
-
-
-    //세부 글 읽기
-    fun read(){
-        var call = httpCall?.read(id = 1)
-        call?.enqueue(object : retrofit2.Callback<readDTO>{
-            override fun onResponse(call: Call<readDTO>, response: Response<readDTO>) {
-                Log.d(TAG, "RetrofitManager - getTodo() - onResponse() called / response: $response")
-                Log.d(TAG, "response.body : ${response.body()}")
-            }
-
-            override fun onFailure(call: Call<readDTO>, t: Throwable) {
-                Log.d(TAG, "RetrofitManager - getTodo() - onFailure() called / t: ${t}")
-            }
-        })
-    }
 }

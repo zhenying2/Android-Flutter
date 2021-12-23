@@ -47,8 +47,8 @@
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
-    <TextView
-        android:id="@+id/tv_post_title"
+    <EditText
+        android:id="@+id/et_post_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -71,10 +71,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_post_title" />
+        app:layout_constraintTop_toBottomOf="@+id/et_post_title" />
 
     <TextView
-        android:id="@+id/tv_post_writer"
+        android:id="@+id/et_post_writer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -85,7 +85,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/iv_post_writer"
-        app:layout_constraintTop_toBottomOf="@+id/tv_post_title"/>
+        app:layout_constraintTop_toBottomOf="@+id/et_post_title"/>
 
 
     <View
@@ -98,7 +98,7 @@
         android:background="@color/darkblue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_post_writer" />
+        app:layout_constraintTop_toBottomOf="@+id/et_post_writer" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -141,8 +141,8 @@
                 android:layout_marginRight="8dp"
                 android:background="@color/darkblue" />
 
-            <TextView
-                android:id="@+id/tv_price"
+            <EditText
+                android:id="@+id/et_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="79000"
@@ -186,8 +186,8 @@
                 android:layout_marginRight="8dp"
                 android:background="@color/darkblue" />
 
-            <TextView
-                android:id="@+id/tv_datess"
+            <EditText
+                android:id="@+id/et_datess"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2021-11-23 ~ 2021-12-23"
@@ -225,8 +225,8 @@
                 android:layout_marginRight="8dp"
                 android:background="@color/darkblue" />
 
-            <TextView
-                android:id="@+id/tv_product_link"
+            <EditText
+                android:id="@+id/et_product_link"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="https://search.shopping.naver..."
@@ -264,8 +264,8 @@
                 android:layout_marginRight="8dp"
                 android:background="@color/darkblue" />
 
-            <TextView
-                android:id="@+id/tv_messanger_link"
+            <EditText
+                android:id="@+id/et_messanger_link"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="https://open.kakao.com/o/team2"
@@ -281,8 +281,8 @@
             android:layout_marginBottom="18dp"
             android:background="#aeb4c2" />
 
-        <TextView
-            android:id="@+id/tv_content"
+        <EditText
+            android:id="@+id/et_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
@@ -290,5 +290,44 @@
             android:text="눈송패딩 공구를 시작합니다!\n자세한 내용은 오픈채팅에서 진행하도록 할게요~\n참여버튼 눌러주시면 감사하겠습니다 :D"
             android:textColor="@color/black" />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="550dp"
+        android:orientation="horizontal">
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/modified_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/rounded_blue"
+        android:text="수정"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/del_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/rounded_blue"
+        android:text="삭제"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
