@@ -10,7 +10,7 @@ import com.example.gonggu.R
 
 class MainItemAdapter(val MainItemList:ArrayList<MainItem>) : RecyclerView.Adapter<MainItemAdapter.CustomViewHolder>(){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : MainItemAdapter.CustomViewHolder{
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : CustomViewHolder{
         val view=LayoutInflater.from(parent.context).inflate(R.layout.main_items,parent,false)
         return CustomViewHolder(view).apply {
             itemView.setOnClickListener {
@@ -21,7 +21,7 @@ class MainItemAdapter(val MainItemList:ArrayList<MainItem>) : RecyclerView.Adapt
         }
     }
 
-    override fun onBindViewHolder(holder: MainItemAdapter.CustomViewHolder, position:Int){
+    override fun onBindViewHolder(holder: CustomViewHolder, position:Int){
         //현재 클릭한 위치와 연동
         holder.title.text=MainItemList.get(position).title
         holder.author.text=MainItemList.get(position).author

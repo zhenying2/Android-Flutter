@@ -1,6 +1,7 @@
 package com.example.gonggu.retrofit
 
 import android.util.Log
+import com.example.gonggu.model.readAllDTO
 import com.example.gonggu.model.readDTO
 import com.example.gonggu.model.writeDTO
 import com.example.gonggu.utils.API
@@ -46,7 +47,9 @@ class RetrofitManager {
         })
     }
 
-    //글 읽기
+
+
+    //세부 글 읽기
     fun read(){
         var call = httpCall?.read(id = 1)
         call?.enqueue(object : retrofit2.Callback<readDTO>{

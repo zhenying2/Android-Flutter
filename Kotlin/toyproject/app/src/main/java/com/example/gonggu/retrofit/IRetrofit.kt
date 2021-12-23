@@ -1,6 +1,7 @@
 package com.example.gonggu.retrofit
 
 import com.example.gonggu.DTOs.userDTO
+import com.example.gonggu.model.readAllDTO
 import com.example.gonggu.model.readDTO
 import com.example.gonggu.model.writeDTO
 import com.example.gonggu.utils.API
@@ -16,6 +17,7 @@ interface IRetrofit {
     @GET(API.SEARCH_USERS)
     fun getUser(@Query("query") searchTerm: String) : Call<JsonElement>
 
+    //글등록
     @Headers("Content-Type: application/json")
     @POST("/api/v1/posts")
     fun write(
@@ -23,8 +25,13 @@ interface IRetrofit {
         writeDTO: writeDTO
     ) : Call<writeDTO>
 
+    //전체 글 조회
+    @GET("/api/v1/posts")
+    fun readAll() : Call<List<readAllDTO>>
+
+    //글 세부 조회
     @GET("/api/v1/posts/{id}")
-    fun read(@Path(value="id",encoded=true) id:Int) : retrofit2.Call<readDTO>
+    fun read(@Path(value="id",encoded=true) id:Int) : Call<readDTO>
 
     @PUT("/api/v1/posts/{id}")
     fun modify(
