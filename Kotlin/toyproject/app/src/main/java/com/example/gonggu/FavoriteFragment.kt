@@ -8,11 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gonggu.databinding.ActivityFavoriteBinding
-import com.example.gonggu.databinding.FragmentMainDetailBinding
 import com.example.gonggu.model.MyWritingDTO
-import com.example.gonggu.model.readAllDTO
-import com.example.gonggu.recyclerview.MainItem
-import com.example.gonggu.recyclerview.MainItemAdapter
+import com.example.gonggu.recyclerview.MyItem
 import com.example.gonggu.recyclerview.MyItemAdapter
 import com.example.gonggu.retrofit.IRetrofit
 import com.example.gonggu.retrofit.RetrofitClient
@@ -27,7 +24,7 @@ class FavoriteFragment: Fragment() {
     private val binding get() = mBinding!!
 
     //recycycler view list
-    val MainItemList= arrayListOf<MainItem>()
+    val MyItemList= arrayListOf<MyItem>()
     val TAG : String = "로그"
     private val httpCall : IRetrofit? = RetrofitClient.getClient(API.BASE_URL)?.create(IRetrofit::class.java)
 
@@ -39,18 +36,18 @@ class FavoriteFragment: Fragment() {
         mBinding= ActivityFavoriteBinding.inflate(inflater, container, false)
 
 
-        //test recycler view
-
+        //login author
+        var myname=arguments?.getString("author").toString()
 
         //내가 쓴 전체 글 읽기
-        var call = httpCall?.MyWriting()
+        var call = httpCall?.MyWriting(myname)
         call?.enqueue(object : retrofit2.Callback<List<MyWritingDTO>>{
             override fun onResponse(call: Call<List<MyWritingDTO>>, response: Response<List<MyWritingDTO>>) {
 
                 Log.d(TAG, "RetrofitManager - getTodo() - onResponse() called / response: $response")
                 Log.d(TAG, "response.body : ${response.body()}")
                 Log.d(TAG, "response.body : ${response.body()?.size!!}")
-                Log.d(TAG, "response.body : ${MainItemList.size}")
+                Log.d(TAG, "response.body : ${MyItemList.size}")
 
                 //recycler view 안의 객체 만들기
                 for (i in 0 until response.body()?.size!!){
@@ -61,9 +58,9 @@ class FavoriteFragment: Fragment() {
                     var period1= Gson().toJson(response.body()?.get(i)?.date).toString()
 
                     //recyclerview 연결
-                    MainItemList.add(MainItem(title1,author1,link1,price1,period1))
+                    MyItemList.add(MyItem(title1,author1,link1,price1,period1))
                 }
-                Log.d(TAG, "response.body : ${MainItemList.size}")
+                Log.d(TAG, "response.body : ${MyItemList.size}")
 
 
                 //test recycler view
@@ -76,7 +73,7 @@ class FavoriteFragment: Fragment() {
                     var period1=Gson().toJson(response.body()?.get(i)?.date).toString()
 
                     //recyclerview 연결
-                    MainItemList.add(MainItem("글","글","글","글","글"))
+                    MyItemList.add(MyItem("글","글","글","글","글"))
                 }
 
 
@@ -85,7 +82,7 @@ class FavoriteFragment: Fragment() {
                 mBinding!!.rvLeadingItems.layoutManager= LinearLayoutManager(activity)
                 mBinding!!.rvLeadingItems.setHasFixedSize(true)
 
-                mBinding!!.rvLeadingItems.adapter= MyItemAdapter(MainItemList)
+                mBinding!!.rvLeadingItems.adapter= MyItemAdapter(MyItemList)
             }
 
 
@@ -98,7 +95,7 @@ class FavoriteFragment: Fragment() {
         mBinding!!.rvLeadingItems.layoutManager= LinearLayoutManager(activity)
         mBinding!!.rvLeadingItems.setHasFixedSize(true)
 
-        mBinding!!.rvLeadingItems.adapter= MyItemAdapter(MainItemList)
+        mBinding!!.rvLeadingItems.adapter= MyItemAdapter(MyItemList)
         return binding.root
     }
 
@@ -125,7 +122,7 @@ class FavoriteFragment: Fragment() {
                 var period=response.body()?.date
 
                 //recycycler view list
-                val MainItemList= arrayListOf<MainItem>()
+                val MyItemList= arrayListOf<MyItem>()
 
                 if (author != null) {
                     for (i in 0 until author.count()){
@@ -135,7 +132,7 @@ class FavoriteFragment: Fragment() {
                         var link1=link?.get(i).toString()
                         var price1=price?.get(i).toString()
                         var period1=period?.get(i).toString()
-                        MainItemList.add(MainItem(title1,author1,link1,price1,period1))
+                        MyItemList.add(MyItem(title1,author1,link1,price1,period1))
                     }
                 }
             }

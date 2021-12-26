@@ -48,7 +48,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <EditText
-        android:id="@+id/et_post_title"
+        android:id="@+id/et_post_titles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -71,10 +71,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_post_title" />
+        app:layout_constraintTop_toBottomOf="@+id/et_post_titles" />
 
     <TextView
-        android:id="@+id/et_post_writer"
+        android:id="@+id/et_post_writers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -85,7 +85,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/iv_post_writer"
-        app:layout_constraintTop_toBottomOf="@+id/et_post_title"/>
+        app:layout_constraintTop_toBottomOf="@+id/et_post_titles"/>
 
 
     <View
@@ -98,7 +98,7 @@
         android:background="@color/darkblue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_post_writer" />
+        app:layout_constraintTop_toBottomOf="@+id/et_post_writers" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -142,7 +142,7 @@
                 android:background="@color/darkblue" />
 
             <EditText
-                android:id="@+id/et_price"
+                android:id="@+id/et_prices"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="79000"
@@ -187,7 +187,7 @@
                 android:background="@color/darkblue" />
 
             <EditText
-                android:id="@+id/et_datess"
+                android:id="@+id/et_datesss"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2021-11-23 ~ 2021-12-23"
@@ -226,7 +226,7 @@
                 android:background="@color/darkblue" />
 
             <EditText
-                android:id="@+id/et_product_link"
+                android:id="@+id/et_product_links"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="https://search.shopping.naver..."
@@ -265,7 +265,7 @@
                 android:background="@color/darkblue" />
 
             <EditText
-                android:id="@+id/et_messanger_link"
+                android:id="@+id/et_messanger_links"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="https://open.kakao.com/o/team2"
@@ -282,7 +282,7 @@
             android:background="#aeb4c2" />
 
         <EditText
-            android:id="@+id/et_content"
+            android:id="@+id/et_contents"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"

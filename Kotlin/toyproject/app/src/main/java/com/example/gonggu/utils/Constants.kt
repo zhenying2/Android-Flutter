@@ -17,5 +17,5 @@ object API {
     const val BASE_URL : String = "https://toyproject-sook.herokuapp.com/"
 
     const val SEARCH_USERS : String = "api/v1/(로그인)"
-
+    const val POST_USERS : String = "api/v1/user"
 }

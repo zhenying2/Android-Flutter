@@ -1,7 +1,9 @@
 package com.example.gonggu.DTOs
 
+import com.google.gson.annotations.SerializedName
+
 data class userDTO(
-    var name : String? = null,
-    var email : String? = null,
-    var picture : String? = null,
+    @SerializedName("email") var email : String? = null,
+    @SerializedName("name") var name : String? = null,
+    @SerializedName("picture") var picture : String? = null,
 )

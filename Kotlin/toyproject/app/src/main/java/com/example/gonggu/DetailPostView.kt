@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.gonggu.model.readAllDTO
 import com.example.gonggu.model.readDTO
 import com.example.gonggu.retrofit.IRetrofit
 import com.example.gonggu.retrofit.RetrofitClient
@@ -20,14 +21,14 @@ class DetailPostView : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
-        var id_extra=intent.getIntExtra("id_extra",0)
+        intent = getIntent();// 인텐트 받아오기
+        var id_extra = intent.getIntExtra("id_extra",10); //Adapter에서 받은 키값 연결
 
         //세부 글 읽기
-        var call = httpCall?.read(id=id_extra)
-        call?.enqueue(object : retrofit2.Callback<readDTO>{
-            override fun onResponse(call: Call<readDTO>, response: Response<readDTO>) {
+        var call = httpCall?.readAll()
+        call?.enqueue(object : retrofit2.Callback<List<readAllDTO>>{
+            override fun onResponse(call: Call<List<readAllDTO>>, response: Response<List<readAllDTO>>) {
                 Log.d(TAG, "RetrofitManager - getTodo() - onResponse() called / response: $response")
-                Log.d(TAG, "response.body : ${response.body()}")
 
                 //id값 매칭
                 var title=findViewById<TextView>(R.id.tv_post_title) //글제목
@@ -39,7 +40,8 @@ class DetailPostView : AppCompatActivity() {
                 var description=findViewById<TextView>(R.id.tv_content) //글내용
 
                 //전달받은 position의 정보 받아서 연결
-                author.setText(response.body()?.author)
+                /*
+                author.setText(Gson().toJson(response.body()?.author))
                 title.setText(response.body()?.title)
                 link.setText(response.body()?.link)
                 price.setText(response.body()?.price)
@@ -48,9 +50,18 @@ class DetailPostView : AppCompatActivity() {
                 description.setText(response.body()?.description)
 
 
+                 */
+
+                title.setText(Gson().toJson(response.body()?.get(id_extra)?.title).toString())
+                author.setText(Gson().toJson(response.body()?.get(id_extra)?.author).toString())
+                link.setText(Gson().toJson(response.body()?.get(id_extra)?.link).toString())
+                price.setText(Gson().toJson(response.body()?.get(id_extra)?.price).toString())
+                period.setText(Gson().toJson(response.body()?.get(id_extra)?.date).toString())
+                contact.setText(Gson().toJson(response.body()?.get(id_extra)?.contact).toString())
+                description.setText(Gson().toJson(response.body()?.get(id_extra)?.description).toString())
             }
 
-            override fun onFailure(call: Call<readDTO>, t: Throwable) {
+            override fun onFailure(call: Call<List<readAllDTO>>, t: Throwable) {
                 Log.d(TAG, "RetrofitManager - getTodo() - onFailure() called / t: ${t}")
 
             }

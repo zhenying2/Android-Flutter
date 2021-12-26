@@ -21,9 +21,11 @@ class AddFragment : Fragment(){
     ): View? {
         mBinding= FragmentAddPostBinding.inflate(inflater, container, false)
 
+        var myname=arguments?.getString("author").toString()
+
         //공구 등록하기 버튼이 클릭되었을 때
         binding.createGoggu.setOnClickListener{
-            var author="진영posttest"
+            var author=myname
             var title=binding.etWriteTitle.text.toString()
             var description=binding.etWriteContent.text.toString()
             var link=binding.etLink.text.toString()

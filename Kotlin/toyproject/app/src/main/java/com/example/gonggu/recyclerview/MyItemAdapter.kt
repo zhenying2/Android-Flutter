@@ -9,33 +9,36 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gonggu.DetailPostView
+import com.example.gonggu.MyDetailPostView
 import com.example.gonggu.R
 
-class MyItemAdapter(val MainItemList:ArrayList<MainItem>) : RecyclerView.Adapter<MyItemAdapter.CustomViewHolder>(){
+class MyItemAdapter(val MyItemList:ArrayList<MyItem>) : RecyclerView.Adapter<MyItemAdapter.CustomViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : CustomViewHolder{
-        val view= LayoutInflater.from(parent.context).inflate(R.layout.main_items,parent,false)
+        val view= LayoutInflater.from(parent.context).inflate(R.layout.my_items,parent,false)
         return CustomViewHolder(view).apply {
             itemView.setOnClickListener {
                 val curPos:Int=adapterPosition
-                val mainitem:MainItem=MainItemList.get(curPos)
-                Toast.makeText(parent.context,"제목 : ${mainitem.title}", Toast.LENGTH_SHORT).show()
+                val myitem:MyItem=MyItemList.get(curPos)
+                Toast.makeText(parent.context,"제목 : ${myitem.title}", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position:Int){
         //현재 클릭한 위치와 연동
-        holder.title.text=MainItemList.get(position).title
-        holder.author.text=MainItemList.get(position).author
-        holder.link.text=MainItemList.get(position).link
-        holder.price.text=MainItemList.get(position).price
-        holder.period.text=MainItemList.get(position).period
+        holder.title.text=MyItemList.get(position).title
+        holder.author.text=MyItemList.get(position).author
+        holder.link.text=MyItemList.get(position).link
+        holder.price.text=MyItemList.get(position).price
+        holder.period.text=MyItemList.get(position).period
 
         //해당 recyclerview 클릭시 activity 화면 이동
         holder.itemView.setOnClickListener {
-            val intent= Intent(holder.itemView?.context, DetailPostView::class.java).putExtra("id_extra",position)
-            ContextCompat.startActivity(holder.itemView.context,intent,null)
+            var intent= Intent(holder.itemView?.context, MyDetailPostView::class.java)
+            intent.putExtra("author",MyItemList.get(position).author)
+            intent.putExtra("id_extra",position)
+            holder.itemView?.context.startActivity(intent)
         }
     }
 
@@ -49,7 +52,7 @@ class MyItemAdapter(val MainItemList:ArrayList<MainItem>) : RecyclerView.Adapter
     }
 
     override fun getItemCount(): Int {
-        return MainItemList.size
+        return MyItemList.size
     }
 
 }

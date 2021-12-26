@@ -1,5 +1,6 @@
 package com.example.gonggu
 
+import android.R.attr
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +8,9 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.gonggu.databinding.ActivityLoginBinding
+import com.example.gonggu.retrofit.RetrofitManager
+import com.example.gonggu.utils.Constants.TAG
+import com.example.gonggu.utils.RESPONSE_STATE
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -14,6 +18,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
+import android.R.attr.data
+import com.example.gonggu.DTOs.userDTO
 
 
 class LoginActivity : AppCompatActivity() {
@@ -56,7 +62,6 @@ class LoginActivity : AppCompatActivity() {
             val task =
                 GoogleSignIn.getSignedInAccountFromIntent(data)
             handleSignInResult(task)
-
         }
     }
 
@@ -66,16 +71,23 @@ class LoginActivity : AppCompatActivity() {
 
             if (account != null) {
                 val email = account?.email.toString()
-                val familyName = account?.familyName.toString()
-                val givenName = account?.givenName.toString()
                 val displayName = account?.displayName.toString()
+                val photo = account?.photoUrl.toString()
 
-                Log.d("*******success*******", email)
-                Log.d("*******success*******", familyName)
-                Log.d("*******success*******", givenName)
-                Log.d("*******success*******", displayName)
+                Log.d("*****성공 success*****", email)
+                Log.d("*****성공 success*****", displayName)
+                Log.d("*****성공 success*****", photo)
 
-                startActivity(Intent(this, MainActivity::class.java))
+                // addUseres API 호출
+                val user = userDTO(email, displayName, photo)
+                RetrofitManager.instance.addUsers(user)
+
+                // 사용자 이메일 넘기기
+                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                intent.putExtra("emailKey", email)
+                intent.putExtra("nameKey", displayName)
+                intent.putExtra("photoKey", photo)
+                startActivity(intent)
                 finish()
             }
 
