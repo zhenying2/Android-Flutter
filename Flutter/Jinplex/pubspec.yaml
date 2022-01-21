@@ -30,8 +30,12 @@ dependencies:
   flutter:
     sdk: flutter
   carousel_slider:
+  #link 연결 하기 위함
   flutter_linkify:
   url_launcher:
+  #firebase db 이용 위함
+  cloud_firestore: 0.13.7
+  firebase_core:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

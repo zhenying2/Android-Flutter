@@ -23,7 +23,7 @@ class _CarouselImageState extends State<CarouselImage>{
   void initState(){
     super.initState();
     movies=widget.movies;
-    images=movies.map((e) => Image.asset('./images/'+e.poster)).toList();
+    images=movies.map((e) => Image.network(e.poster)).toList();
     keywords=movies.map((e) => e.keyword).toList();
     likes=movies.map((e) => e.like).toList();
     _currentKeyword=keywords[0];
@@ -61,11 +61,23 @@ class _CarouselImageState extends State<CarouselImage>{
                     children: <Widget>
                     [likes[_currentPage]
                         ? IconButton(
-                        onPressed: (){},
+                        onPressed: (){
+                          setState(() {
+                            likes[_currentPage]= !likes[_currentPage];
+                            movies[_currentPage].reference.updateData(
+                              {'like':likes[_currentPage]});
+                          });
+                        },
                         icon: Icon(Icons.check)
                     )
                         : IconButton(
-                        onPressed: (){},
+                          onPressed: (){
+                            setState(() {
+                              likes[_currentPage]= !likes[_currentPage];
+                              movies[_currentPage].reference.updateData(
+                                  {'like':likes[_currentPage]});
+                            });
+                          },
                         icon: Icon(Icons.add)
                     ),
                       Text(
