@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jinplex/screen/home_screen.dart';
+import 'package:jinplex/screen/more_screen.dart';
 import 'package:jinplex/widget/bottom_bar.dart';
 
 void main() {
@@ -30,7 +31,7 @@ class _MyAppState extends State<MyApp>{
               HomeScreen(),
               Container(child: Center(child: Text('search'),),),
               Container(child: Center(child: Text('save'),),),
-              Container(child: Center(child: Text('more'),),),
+              MoreScreen(),
             ],
           ),
           bottomNavigationBar: Bottom(),
