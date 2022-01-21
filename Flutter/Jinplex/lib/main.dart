@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jinplex/screen/home_screen.dart';
+import 'package:jinplex/screen/like_screen.dart';
 import 'package:jinplex/screen/more_screen.dart';
 import 'package:jinplex/screen/search_screen.dart';
 import 'package:jinplex/widget/bottom_bar.dart';
@@ -31,7 +32,7 @@ class _MyAppState extends State<MyApp>{
             children: [
               HomeScreen(),
               SearchScreen(),
-              Container(child: Center(child: Text('save'),),),
+              LikeScreen(),
               MoreScreen(),
             ],
           ),
