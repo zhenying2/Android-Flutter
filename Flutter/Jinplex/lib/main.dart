@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jinplex/screen/home_screen.dart';
 import 'package:jinplex/screen/more_screen.dart';
+import 'package:jinplex/screen/search_screen.dart';
 import 'package:jinplex/widget/bottom_bar.dart';
 
 void main() {
@@ -29,7 +30,7 @@ class _MyAppState extends State<MyApp>{
             physics: NeverScrollableScrollPhysics(),
             children: [
               HomeScreen(),
-              Container(child: Center(child: Text('search'),),),
+              SearchScreen(),
               Container(child: Center(child: Text('save'),),),
               MoreScreen(),
             ],
