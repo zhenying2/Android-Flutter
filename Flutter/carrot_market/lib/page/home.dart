@@ -1,3 +1,4 @@
+import 'package:carrot_market/repository/contents_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
@@ -10,8 +11,8 @@ class Home extends StatefulWidget{
 }
 
 class _HomeState extends State<Home>{
-  List<Map<String,String>> datas=[];
   late String currentLocation;
+  late ContentsRepository contentsRepository;
   final Map<String,String> locationTypeToString={
     "ara":"아라동", "ora":"오라동","donam":"도남동",
   };
@@ -20,50 +21,7 @@ class _HomeState extends State<Home>{
   void initState(){
     super.initState();
     currentLocation="ara";
-    datas=[
-      {
-        "image" : "assets/images/ara-1.jpg",
-        "title" : "제목 1",
-        "location" : "위치 1",
-        "price" : "10000",
-        "likes" : "1"
-      },
-      {
-        "image" : "assets/images/ara-2.jpg",
-        "title" : "제목 2",
-        "location" : "위치 2",
-        "price" : "20000",
-        "likes" : "2"
-      },
-      {
-        "image" : "assets/images/ara-3.jpg",
-        "title" : "제목 3",
-        "location" : "위치 3",
-        "price" : "30000",
-        "likes" : "3"
-      },
-      {
-        "image" : "assets/images/ara-4.jpg",
-        "title" : "제목 4",
-        "location" : "위치 4",
-        "price" : "40000",
-        "likes" : "4"
-      },
-      {
-        "image" : "assets/images/ara-5.jpg",
-        "title" : "제목 5",
-        "location" : "위치 5",
-        "price" : "50000",
-        "likes" : "5"
-      },
-      {
-        "image" : "assets/images/ara-6.jpg",
-        "title" : "제목 6",
-        "location" : "위치 6",
-        "price" : "60000",
-        "likes" : "6"
-      },
-    ];
+    contentsRepository=ContentsRepository();
   }
 
 
@@ -118,7 +76,11 @@ class _HomeState extends State<Home>{
     );
   }
 
-  Widget _bodyWidget(){
+  _loadContents(){
+    return contentsRepository.loadContentsFromLocation(currentLocation);
+  }
+
+  _makeDataList(List<Map<String,String>> datas){
     return ListView.separated(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       itemBuilder: (BuildContext _context, int index){
@@ -170,6 +132,23 @@ class _HomeState extends State<Home>{
       },
       itemCount: 10,
     );
+  }
+
+  Widget _bodyWidget(){
+    return FutureBuilder(
+      future: _loadContents(),
+      builder: (BuildContext context,dynamic snapshot) {
+        if (snapshot.connectionState != ConnectionState.done) {
+          return Center(child: CircularProgressIndicator());
+        }
+        if (snapshot.hasError) {
+          return Center(child: Text("데이터 오류"));
+        }
+        if (snapshot.hasData) {
+          return _makeDataList(snapshot.data);
+        }
+        return Center(child: Text("해당 지역에 데이터 없습니다."));
+      });
   }
 
   @override
