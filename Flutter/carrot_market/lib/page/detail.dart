@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carrot_market/components/manor_temperature_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -43,55 +44,95 @@ class _DetailContentViewState extends State<DetailContentView>{
     );
   }
 
-  Widget _bodyWidget(){
+  Widget _makeSliderImage(){
     return Container(
       child: Stack(
         children: [
-        Hero(
-          tag: widget.data["cid"]!,
-          child:
+          Hero(
+            tag: widget.data["cid"]!,
+            child:
             CarouselSlider(
               items:imgList.map((map){
                 return Image.asset(
-                    map["url"]!,
-                    width:size.width,
-                    fit: BoxFit.fill,
+                  map["url"]!,
+                  width:size.width,
+                  fit: BoxFit.fill,
                 );
               }).toList(),
               options: CarouselOptions(
-                height: size.width,
-                initialPage: 0,
-                enableInfiniteScroll: false,
-                viewportFraction: 1,
-                onPageChanged: (index,reason){
-                  setState(() {
-                    _current=index;
-                  });
-                }
+                  height: size.width,
+                  initialPage: 0,
+                  enableInfiniteScroll: false,
+                  viewportFraction: 1,
+                  onPageChanged: (index,reason){
+                    setState(() {
+                      _current=index;
+                    });
+                  }
               ),
             ),
           ),
-        Positioned(
-          bottom: 0,
-          left:0,
-          right:0,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: imgList.map((map){
-              return Container(
-                width: 10.0,
-                height: 10.0,
-                margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 2.0),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: _current == int.parse(map["id"]!)
-                    ? Colors.white : Colors.white.withOpacity(0.4),
-                ),
-              );
-            }).toList(),
+          Positioned(
+            bottom: 0,
+            left:0,
+            right:0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: imgList.map((map){
+                return Container(
+                  width: 10.0,
+                  height: 10.0,
+                  margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 2.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: _current == int.parse(map["id"]!)
+                        ? Colors.white : Colors.white.withOpacity(0.4),
+                  ),
+                );
+              }).toList(),
+            ),
           ),
-        ),
-      ],),
+        ],),
+    );
+  }
+
+  Widget _sellerSimpleInfo(){
+    return Padding(
+      padding: const EdgeInsets.all(15.0),
+      child: Row(
+        children: [
+          /*
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Container(
+              width: 50, height: 50, child: Image.asset("assets/images/user.png"),
+            ),
+          )
+           */
+          CircleAvatar(
+            radius: 25,
+            backgroundImage: Image.asset("assets/images/user.png").image,
+          ),
+          SizedBox(width: 10),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("판매자1",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16)),
+              Text("제주시 도담동"),
+            ],
+          ),
+          Expanded(child: ManorTemperature(manorTemp: 37.5))
+        ],
+      ),
+    );
+  }
+  Widget _bodyWidget(){
+    return Column(
+      children: [
+        _makeSliderImage(),
+        _sellerSimpleInfo(),
+        
+      ],
     );
   }
 
