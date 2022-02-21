@@ -1,5 +1,6 @@
 import 'package:carrot_market/page/detail.dart';
 import 'package:carrot_market/repository/contents_repository.dart';
+import 'package:carrot_market/utils/data_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
@@ -23,12 +24,6 @@ class _HomeState extends State<Home>{
     super.initState();
     currentLocation="ara";
     contentsRepository=ContentsRepository();
-  }
-
-
-  final oCcy=new NumberFormat("#,###","ko_KR");
-  String calcStringToWon(String priceString){
-    return "${oCcy.format(int.parse(priceString))}원";
   }
 
   PreferredSizeWidget _appbarWidget() {
@@ -121,7 +116,7 @@ class _HomeState extends State<Home>{
                         SizedBox(height: 5),
                         Text(datas[index]["location"]!,style: TextStyle(fontSize: 12,color: Colors.black.withOpacity(0.3)),),
                         SizedBox(height: 5),
-                        Text(datas[index]["price"]!,style: TextStyle(fontWeight: FontWeight.w500),),
+                        Text(DataUtils.calcStringToWon(datas[index]["price"]!),style: TextStyle(fontWeight: FontWeight.w500),),
                         Expanded(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
