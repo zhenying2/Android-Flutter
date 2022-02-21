@@ -14,6 +14,7 @@ class DetailContentView extends StatefulWidget{
 }
 
 class _DetailContentViewState extends State<DetailContentView> with SingleTickerProviderStateMixin{
+  final scaffoldKey=GlobalKey<ScaffoldState>();
   late Size size;
   late List<Map<String,String>> imgList;
   late int _current;
@@ -21,6 +22,7 @@ class _DetailContentViewState extends State<DetailContentView> with SingleTicker
   ScrollController _controller=ScrollController();
   late AnimationController _animationController;
   late Animation _colorTween;
+  bool isMyFavoriteContent=false;
 
   @override
   void initState() {
@@ -247,12 +249,20 @@ class _DetailContentViewState extends State<DetailContentView> with SingleTicker
        children: [
          GestureDetector(
              onTap: (){
-               print("관심 상품 이벤트 발생");
+               setState(() {
+                 isMyFavoriteContent=!isMyFavoriteContent;
+               });
+               scaffoldKey.currentState?.showSnackBar(
+                 SnackBar(duration: Duration(milliseconds: 1000), content: Text(isMyFavoriteContent
+                     ? "관심목록에 추가되었습니다." : "관심목록에 제거되었습니다")),
+               );
              },
              child: SvgPicture.asset(
-               "assets/svg/heart_off.svg",
+               isMyFavoriteContent
+               ? "assets/svg/heart_on.svg" : "assets/svg/heart_off.svg",
                width: 25,
                height: 25,
+               color: Color(0xfff08f4f),
              ),
          ),
          Container(
@@ -295,6 +305,7 @@ class _DetailContentViewState extends State<DetailContentView> with SingleTicker
   @override
   Widget build(BuildContext context){
     return Scaffold(
+      key: scaffoldKey,
       extendBodyBehindAppBar: true,
       appBar: _appbarWidget(),
       body: _bodyWidget(),
