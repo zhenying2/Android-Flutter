@@ -178,18 +178,50 @@ class ContentsRepository extends LocalStorageRepository{
     return data[location];
   }
 
-  addMyFavoriteContent(Map<String,String> content){
-    this.storeValue(MY_FAVORITE_STORE_KEY, jsonEncode(content));
-  }
-
-  isMyFavoritecontents(String cid)async{
+  Future<List?> loadFavoriteContents() async{
     String? jsonString=await this.getStoredValue(MY_FAVORITE_STORE_KEY);
-    if(jsonString !=null){
-      Map<String,dynamic> json=jsonDecode(jsonString);
-      print(json);
-      return cid == json["cid"];
+    if(jsonString !=null) {
+      List<dynamic> json = jsonDecode(jsonString);
+      return json;
     }else{
       return null;
     }
+  }
+  addMyFavoriteContent(Map<String,String> content)async{
+    List? favoriteContentList=await loadFavoriteContents();
+    if(favoriteContentList==null || !(favoriteContentList is List)){
+      favoriteContentList=[content];
+    }else{
+      favoriteContentList.add(content);
+    }
+    updateFavoriteContent(favoriteContentList);
+  }
+
+  void updateFavoriteContent(List favoriteContentList) async{
+    await this.storeValue(MY_FAVORITE_STORE_KEY, jsonEncode(favoriteContentList));
+  }
+
+  deleteMyFavoriteContent(String cid)async{
+    List? favoriteContentList=await loadFavoriteContents();
+    if(favoriteContentList !=null && favoriteContentList is List){
+      favoriteContentList.removeWhere((data) => data["cid"]==cid);
+    }
+    updateFavoriteContent(favoriteContentList!);
+  }
+
+  isMyFavoritecontents(String cid)async{
+    bool isMyFavoriteContents=false;
+    List? json=await loadFavoriteContents();
+    if(json ==null || !(json is List)){
+        return false;
+    }else{
+      for (dynamic data in json){
+        if (data["cid"]==cid){
+          isMyFavoriteContents=true;
+          break;
+        }
+      }
+    }
+      return isMyFavoriteContents;
   }
 }
