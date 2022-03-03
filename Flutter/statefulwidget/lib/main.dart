@@ -17,21 +17,44 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage>{
+  var _ischecked=false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+        appBar: AppBar(
 
-        title: Text('제목'),
-      ),
-      body: Container(
-        color:Colors.red,
-        width: 100,
-        height: 100,
-        padding: const EdgeInsets.all(8.0),
-        margin: const EdgeInsets.all(8.0),
-      )
+          title: Text('checkbox/radio/switch'),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Checkbox(
+                  value: _ischecked,
+                  onChanged: (value) {
+                    setState(() {
+                      _ischecked=value!;
+                    });},
+                ),
+                SizedBox(height: 40,),
+                Switch(
+                    value: _ischecked,
+                    onChanged: (value) {
+                    setState(() {
+                    _ischecked=value;
+                    });})
+              ],
+            ),
+          ),
+        )
     );
   }
 }
