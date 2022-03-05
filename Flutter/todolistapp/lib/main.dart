@@ -1,14 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
 }
 
 //할일 클래스
 class Todo{
-  bool isDone=false;
+  bool isDone;
   String title;
-  Todo(this.title);
+  Todo(this.title,{this.isDone=false});
 }
 
 //시작 클래스
@@ -36,7 +40,7 @@ class TodoListPage extends StatefulWidget{
 //TodoListPage의 State 클래스
 class _TodoListPageState extends State<TodoListPage>{
   //할 일 목록을 저장할 리스트
-  final _items=<Todo>[];
+  //final _items=<Todo>[];
 
   //할일 문자열 조작을 위한 컨트롤러
   var _todoController=TextEditingController();
@@ -49,30 +53,25 @@ class _TodoListPageState extends State<TodoListPage>{
 
   //할일 추가 메서드
   void _addTodo(Todo todo){
-    setState(() {
-      _items.add(todo);
-      _todoController.text=""; //할일 입력필드를 비움
-    });
+    FirebaseFirestore.instance.collection('todo').add({'title':todo.title,'isDone':todo.isDone});
+    _todoController.text='';
   }
 
   //할일 삭제 메서드
-  void _deleteTodo(Todo todo){
-    setState(() {
-      _items.remove(todo);
-    });
+  void _deleteTodo(DocumentSnapshot doc){
+    FirebaseFirestore.instance.collection('todo').doc(doc.id).delete();
   }
 
   //할일 완료/미완료 메서드
-  void _toggleTodo(Todo todo){
-    setState(() {
-      todo.isDone= !todo.isDone;
-    });
+  void _toggleTodo(DocumentSnapshot doc){
+    FirebaseFirestore.instance.collection('todo').doc(doc.id).update({'isDone': !doc['isDone']});
   }
 
   //할 일 객체를 ListTile 형태로 변경하는 메서드
-  Widget _buildItemWidget(Todo todo){
+  Widget _buildItemWidget(DocumentSnapshot doc){
+    final todo=Todo(doc['title'],isDone: doc['isDone']);
     return ListTile(
-      onTap: ()=> _toggleTodo(todo),
+      onTap: ()=> _toggleTodo(doc),
       title: Text(
         todo.title, //할일
         style: todo.isDone
@@ -80,7 +79,7 @@ class _TodoListPageState extends State<TodoListPage>{
       ),
     trailing: IconButton(
     icon: Icon(Icons.delete_forever),
-    onPressed: () => _deleteTodo(todo),
+    onPressed: () => _deleteTodo(doc),
     ),
     );
   }
@@ -108,10 +107,19 @@ class _TodoListPageState extends State<TodoListPage>{
                 ),
               ],
             ),
-            Expanded(
-              child: ListView(
-                children: _items.map((todo) => _buildItemWidget(todo)).toList(),
-              ),
+            StreamBuilder<QuerySnapshot>(
+              stream: FirebaseFirestore.instance.collection('todo').snapshots(),
+              builder: (context, snapshot) {
+                if(!snapshot.hasData){
+                  return CircularProgressIndicator();
+                }
+                final documents=snapshot.data!.docs;
+                return Expanded(
+                  child: ListView(
+                    children: documents.map((doc) => _buildItemWidget(doc)).toList(),
+                  ),
+                );
+              }
             )
           ],
         ),
