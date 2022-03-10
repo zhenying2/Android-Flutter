@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1034053613276",
+    "project_id": "lolfi-jj",
+    "storage_bucket": "lolfi-jj.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034053613276:android:aaf41dcf952aaeb37de619",
+        "android_client_info": {
+          "package_name": "com.example.nolfi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1034053613276-blf9q84oc4o9opm7nqvnqnok1nq9eka4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC68uI21Aexr0yxVmj0wHy1o-3IRcV-KR0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1034053613276-blf9q84oc4o9opm7nqvnqnok1nq9eka4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
