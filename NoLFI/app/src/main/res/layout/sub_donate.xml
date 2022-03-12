@@ -159,64 +159,6 @@
             android:layout_marginHorizontal="15dp"
             android:layout_marginBottom="5dp"
             android:background="#2FA599"/>
-        <!--production cost-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:paddingHorizontal="10dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Production cost "
-                android:textSize="19sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_gravity="center"/>
-            <EditText
-                android:id="@+id/sell_product_productioncost"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:layout_gravity="center"/>
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginBottom="5dp"
-            android:background="#2FA599"/>
-        <!--selling price-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:paddingHorizontal="10dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Selling price "
-                android:textSize="19sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_gravity="center"/>
-            <EditText
-                android:id="@+id/sell_product_sellingprice"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:layout_gravity="center"/>
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginBottom="5dp"
-            android:background="#2FA599"/>
         <!--location-->
         <LinearLayout
             android:layout_width="match_parent"

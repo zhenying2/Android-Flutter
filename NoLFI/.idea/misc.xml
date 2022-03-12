@@ -6,8 +6,14 @@
         <entry key="..\:/Users/khapp/Desktop/mygithub/2022-NoLFI-SolutionChallenge/NoLFI/app/src/main/res/drawable/ic_baseline_arrow_drop_down_24.xml" value="0.296875" />
         <entry key="..\:/Users/khapp/Desktop/mygithub/2022-NoLFI-SolutionChallenge/NoLFI/app/src/main/res/drawable/ic_baseline_photo_camera_24.xml" value="0.296875" />
         <entry key="..\:/Users/khapp/Desktop/mygithub/2022-NoLFI-SolutionChallenge/NoLFI/app/src/main/res/font/font.xml" value="0.3109375" />
+        <entry key="..\:/Users/khapp/Desktop/mygithub/2022-NoLFI-SolutionChallenge/NoLFI/app/src/main/res/layout/activity_donate.xml" value="0.2838541666666667" />
+        <entry key="..\:/Users/khapp/Desktop/mygithub/2022-NoLFI-SolutionChallenge/NoLFI/app/src/main/res/layout/activity_group_purchase.xml" value="0.2838541666666667" />
         <entry key="..\:/Users/khapp/Desktop/mygithub/2022-NoLFI-SolutionChallenge/NoLFI/app/src/main/res/layout/activity_main.xml" value="0.27219202898550726" />
         <entry key="..\:/Users/khapp/Desktop/mygithub/2022-NoLFI-SolutionChallenge/NoLFI/app/src/main/res/layout/activity_sell.xml" value="0.25" />
+        <entry key="..\:/Users/khapp/Desktop/mygithub/2022-NoLFI-SolutionChallenge/NoLFI/app/src/main/res/layout/donatetopbar.xml" value="0.2838541666666667" />
+        <entry key="..\:/Users/khapp/Desktop/mygithub/2022-NoLFI-SolutionChallenge/NoLFI/app/src/main/res/layout/grouppurchasetopbar.xml" value="0.2838541666666667" />
+        <entry key="..\:/Users/khapp/Desktop/mygithub/2022-NoLFI-SolutionChallenge/NoLFI/app/src/main/res/layout/sub_donate.xml" value="0.2838541666666667" />
+        <entry key="..\:/Users/khapp/Desktop/mygithub/2022-NoLFI-SolutionChallenge/NoLFI/app/src/main/res/layout/sub_grouppurchase.xml" value="0.2838541666666667" />
         <entry key="..\:/Users/khapp/Desktop/mygithub/2022-NoLFI-SolutionChallenge/NoLFI/app/src/main/res/layout/sub_sell.xml" value="0.28072916666666664" />
         <entry key="..\:/Users/khapp/Desktop/mygithub/2022-NoLFI-SolutionChallenge/NoLFI/app/src/main/res/layout/toolbar.xml" value="0.28072916666666664" />
         <entry key="..\:/Users/khapp/Desktop/mygithub/2022-NoLFI-SolutionChallenge/NoLFI/app/src/main/res/menu/menu.xml" value="0.28072916666666664" />
