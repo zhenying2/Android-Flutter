@@ -14,7 +14,7 @@
             android:orientation="horizontal"
             android:layout_marginTop="28dp">
             <ImageView
-                android:id="@+id/sell_product_photo"
+                android:id="@+id/donate_product_photo"
                 android:layout_marginLeft="20dp"
                 android:layout_width="112dp"
                 android:layout_height="112dp"
@@ -24,7 +24,7 @@
                 android:src="@drawable/ic_baseline_photo_camera_24"/>
             <!--enroll button-->
             <Button
-                android:id="@+id/enroll_button"
+                android:id="@+id/donate_enroll_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="160dp"
@@ -60,7 +60,7 @@
                 android:textStyle="bold"
                 android:layout_gravity="center"/>
             <EditText
-                android:id="@+id/sell_product_name"
+                android:id="@+id/donate_product_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
@@ -89,7 +89,7 @@
                 android:textStyle="bold"
                 android:layout_gravity="center"/>
             <EditText
-                android:id="@+id/sell_product_category"
+                android:id="@+id/donate_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
@@ -118,7 +118,7 @@
                 android:textStyle="bold"
                 android:layout_gravity="center"/>
             <EditText
-                android:id="@+id/sell_product_purchasedate"
+                android:id="@+id/donate_purchase_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
@@ -147,7 +147,7 @@
                 android:textStyle="bold"
                 android:layout_gravity="center"/>
             <EditText
-                android:id="@+id/sell_product_expirationdate"
+                android:id="@+id/donate_expiration_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
@@ -176,7 +176,7 @@
                 android:textStyle="bold"
                 android:layout_gravity="center"/>
             <EditText
-                android:id="@+id/sell_product_location"
+                android:id="@+id/donate_location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
@@ -205,7 +205,7 @@
                 android:textStyle="bold"
                 android:layout_gravity="center"/>
             <EditText
-                android:id="@+id/sell_product_contact"
+                android:id="@+id/donate_contact"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
@@ -219,6 +219,7 @@
             android:background="#2FA599"/>
         <!--edittext 글내용-->
         <EditText
+            android:id="@+id/donate_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@null"

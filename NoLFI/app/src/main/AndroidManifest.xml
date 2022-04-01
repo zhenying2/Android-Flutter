@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.nolfi">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,14 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NoLFI">
+        <activity android:name=".mypage.MyPage_Customer"></activity>
+        <activity android:name=".mypage.Mypage_Product" />
+        <activity android:name=".mypage.MyPage_Bookmark" />
         <activity
-            android:name=".write.Donate"
-            android:exported="false" />
-        <activity
-            android:name=".write.GroupPurchase"
-            android:exported="false" />
-        <activity
-            android:name=".write.SellActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,8 +24,13 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".RegisterActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true" />
+        <activity android:name=".mainpage.MainPage2"
+            android:exported="true"/>
     </application>
 
 </manifest>

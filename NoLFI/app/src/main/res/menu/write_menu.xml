@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/write_menu1"
+        android:title="Sell" />
+    <item
+        android:id="@+id/write_menu2"
+        android:title="Group Purchase" />
+    <item
+        android:id="@+id/write_menu3"
+        android:title="Donate" />
+</menu>

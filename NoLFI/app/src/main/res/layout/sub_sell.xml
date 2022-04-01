@@ -24,7 +24,7 @@
                 android:src="@drawable/ic_baseline_photo_camera_24"/>
             <!--enroll button-->
             <Button
-                android:id="@+id/enroll_button"
+                android:id="@+id/sell_enroll_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="160dp"
